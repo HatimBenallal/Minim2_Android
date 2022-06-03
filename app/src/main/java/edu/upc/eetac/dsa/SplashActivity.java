@@ -21,9 +21,9 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 Intent intent;
                 if(isLogged)
-                    intent = new Intent(SplashActivity.this, LandPageActivity.class);
-                else
                     intent = new Intent(SplashActivity.this, MenuActivity.class);
+                else
+                    intent = new Intent(SplashActivity.this, LandPageActivity.class);
                 startActivity(intent);
                 finish();
             }

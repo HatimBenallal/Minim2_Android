@@ -13,7 +13,8 @@ public interface ApiInterface {
     Call<List<Item>> getItems();
 
 
-
+    @GET("faq")
+    Call<List<FAQ>> getFAQ();
 
     @POST("users/login")
     Call<User> login(@Body LogInParams loginpar);

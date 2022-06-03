@@ -2,7 +2,6 @@ package edu.upc.eetac.dsa;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.upc.eetac.dsa.models.Item;
-import edu.upc.eetac.dsa.models.LogInParams;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import edu.upc.eetac.dsa.models.User;
 
 public class ShopActivity extends AppCompatActivity {
     private List<Item> itemList;

@@ -37,4 +37,10 @@
         android:text="Register"
         android:textSize="40sp" />
 
+    <Button
+        android:id="@+id/btnFAQ"
+        android:layout_width="316dp"
+        android:layout_height="wrap_content"
+        android:text="FAQs" />
+
 </RelativeLayout>

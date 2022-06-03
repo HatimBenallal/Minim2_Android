@@ -23,7 +23,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="23dp" />
 
         <Button
             android:id="@+id/button_profile"
@@ -33,7 +33,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="22dp" />
 
         <Button
             android:id="@+id/button_shop"
@@ -43,13 +43,14 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="15dp" />
 
         <Button
             android:id="@+id/button_logout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Log Out" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
