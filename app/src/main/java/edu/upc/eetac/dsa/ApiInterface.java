@@ -1,6 +1,7 @@
 package edu.upc.eetac.dsa;
 import java.util.List;
 
+import edu.upc.eetac.dsa.models.FAQ;
 import edu.upc.eetac.dsa.models.Item;
 import edu.upc.eetac.dsa.models.LogInParams;
 import edu.upc.eetac.dsa.models.User;
@@ -13,7 +14,7 @@ public interface ApiInterface {
     Call<List<Item>> getItems();
 
 
-    @GET("faq")
+    @GET("users/faq")
     Call<List<FAQ>> getFAQ();
 
     @POST("users/login")

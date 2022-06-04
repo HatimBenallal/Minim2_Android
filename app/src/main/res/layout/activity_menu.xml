@@ -51,6 +51,16 @@
             android:layout_height="60dp"
             android:text="Log Out" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/btnFAQ"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="FAQs" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

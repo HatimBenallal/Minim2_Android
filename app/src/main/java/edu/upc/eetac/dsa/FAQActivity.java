@@ -12,11 +12,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.upc.eetac.dsa.models.FAQ;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FAQActivity extends AppCompatActivity{
+public class FAQActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     private List<FAQ> faqs = new ArrayList<>();
     private ProgressBar progressBar;
@@ -31,7 +32,7 @@ public class FAQActivity extends AppCompatActivity{
         progressBar = findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.VISIBLE);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerViewfaq);
         recyclerView.setLayoutManager(layoutManager);
 
         apiInterface = Api.getClient();
@@ -45,21 +46,22 @@ public class FAQActivity extends AppCompatActivity{
             public void onResponse(Call<List<FAQ>> call, Response<List<FAQ>> response) {
                 if (!response.isSuccessful()) {
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "error, can't display FAQs", Toast.LENGTH_LONG).show();
                 }
                 if (response.isSuccessful()) {
                     faqs = response.body();
-                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewfaq);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     myAdapter = new RecyclerViewAdapterFAQ(faqs);
                     recyclerView.setAdapter(myAdapter);
+                    progressBar.setVisibility(View.GONE);
                 }
             }
 
             @Override
             public void onFailure(Call<List<FAQ>> call, Throwable throwable) {
                 call.cancel();
-                Toast.makeText(getApplicationContext(), "USER NOT FOUND", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
             }
         });
     }

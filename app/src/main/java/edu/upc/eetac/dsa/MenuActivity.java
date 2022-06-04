@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button profile,stats,shop,logout,faq;
+    private Button profile,stats,shop,logout;
+    private Button faqButton;
     SharedPreferences sharedPref;
     SharedPreferences.Editor myEdit;
     ApiInterface apiInterface;
@@ -26,6 +27,7 @@ public class MenuActivity extends AppCompatActivity {
         stats = (Button) findViewById(R.id.button_stats);
         shop = (Button) findViewById(R.id.button_shop);
         logout = (Button) findViewById(R.id.button_logout);
+        faqButton = (Button) findViewById(R.id.btnFAQ);
 
         apiInterface = Api.getClient();
         sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
@@ -64,13 +66,22 @@ public class MenuActivity extends AppCompatActivity {
                 openLandPageActivity();
             }
         });
+        faqButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFAQActivity();
+            }
+        });
 
     }
     private void openLandPageActivity(){
         Intent intent = new Intent(this, LandPageActivity.class);
         startActivity(intent);
     }
-
+    private void openFAQActivity(){
+        Intent intent = new Intent(this, FAQActivity.class);
+        startActivity(intent);
+    }
 
 
 //    private void openProfileActivity(){

@@ -3,6 +3,7 @@ package edu.upc.eetac.dsa;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.PatternsCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -127,6 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 String c = Integer.toString(response.code());
                 Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
+                openLoginActivity();
             }
             @Override
             public void onFailure(Call<User> call, Throwable t) {
@@ -134,5 +136,9 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void openLoginActivity(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

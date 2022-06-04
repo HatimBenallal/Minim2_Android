@@ -20,10 +20,10 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent;
-                if(isLogged)
-                    intent = new Intent(SplashActivity.this, MenuActivity.class);
-                else
+                if(!isLogged)
                     intent = new Intent(SplashActivity.this, LandPageActivity.class);
+                else
+                    intent = new Intent(SplashActivity.this, MenuActivity.class);
                 startActivity(intent);
                 finish();
             }

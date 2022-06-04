@@ -1,5 +1,6 @@
 package edu.upc.eetac.dsa;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,16 +8,19 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-
-//import org.jetbrains.annotations.NotNull;
-
+import androidx.constraintlayout.widget.ConstraintLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.upc.eetac.dsa.models.*;
+
 public class RecyclerViewAdapterFAQ extends RecyclerView.Adapter<RecyclerViewAdapterFAQ.ViewHolder> {
 
-    List<FAQ> listaFAQs = new ArrayList<>();
+    List<FAQ> faqList;
+
+    public RecyclerViewAdapterFAQ(List<FAQ> faqList) {
+        this.faqList = faqList;
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -24,20 +28,16 @@ public class RecyclerViewAdapterFAQ extends RecyclerView.Adapter<RecyclerViewAda
         public TextView answer;
         public View layout;
 
-        public ViewHolder(View itemLayoutView) {
-            super(itemLayoutView);
-            layout = itemLayoutView;
-            question = (TextView) itemLayoutView.findViewById(R.id.Question);
-            answer = (TextView) itemLayoutView.findViewById(R.id.answer);
+        public ViewHolder(View view) {
+            super(view);
+            layout = view;
+            question = (TextView) view.findViewById(R.id.Question);
+            answer = (TextView) view.findViewById(R.id.answer);
         }
     }
 
-    public RecyclerViewAdapterFAQ(List<FAQ> listaFAQs) {
-        this.listaFAQs = listaFAQs;
-    }
-
     public void add (int position, FAQ faq){
-        listaFAQs.add(position, faq);
+        faqList.add(position, faq);
         notifyItemInserted(position);
     }
 
@@ -53,13 +53,13 @@ public class RecyclerViewAdapterFAQ extends RecyclerView.Adapter<RecyclerViewAda
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.question.setText("Question"+listaFAQs.get(position).getQuest());
-        viewHolder.answer.setText("Answer"+listaFAQs.get(position).getAnswer());
+        viewHolder.question.setText("Question:"+ faqList.get(position).getQuest());
+        viewHolder.answer.setText("Answer:"+ faqList.get(position).getAnswer());
     }
 
     @Override
     public int getItemCount() {
-        return listaFAQs.size();
+        return faqList.size();
     }
 }
 
