@@ -28,9 +28,9 @@ public class MenuActivity extends AppCompatActivity {
         shop = (Button) findViewById(R.id.button_shop);
         logout = (Button) findViewById(R.id.button_logout);
         faqButton = (Button) findViewById(R.id.btnFAQ);
-
-        apiInterface = Api.getClient();
         sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
+        myEdit = sharedPref.edit();
+        apiInterface = Api.getClient();
 
 //        profile.setOnClickListener(new View.OnClickListener() {
 //            @Override
